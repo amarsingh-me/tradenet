@@ -1,5 +1,7 @@
 # Notes on this implementation
 
+See [TECH_STACK.md](TECH_STACK.md) for the full list of technologies used.
+
 ## Running it
 
 ```
