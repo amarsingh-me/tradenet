@@ -1,0 +1,24 @@
+services:
+  backend:
+    build: ./chat-backend
+    volumes:
+      - chat-data:/data
+    healthcheck:
+      # No curl/wget in the eclipse-temurin runtime image, and adding one just for a healthcheck
+      # isn't worth the extra layer -- bash's /dev/tcp is enough to confirm Tomcat is accepting
+      # connections, which is all "frontend can start proxying to it" actually needs to know.
+      test: ["CMD-SHELL", "bash -c '</dev/tcp/localhost/8080' || exit 1"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+
+  frontend:
+    build: ./chat-frontend
+    ports:
+      - "8081:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+
+volumes:
+  chat-data:

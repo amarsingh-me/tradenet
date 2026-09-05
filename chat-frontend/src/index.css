@@ -1,0 +1,33 @@
+:root {
+  /* Deliberately dark-only: every color below is hard-coded for one theme, not a light/dark
+     pair. "light dark" (or leaving color-scheme unset) would let the browser's UA defaults fill
+     in any background/text color this stylesheet doesn't explicitly set -- which is exactly how
+     the previous version ended up with light-on-light text (a light bubble background paired
+     with a UA default light text color) on a dark-mode browser. Pinning color-scheme: dark and
+     giving every element an explicit background/color pair removes that gap entirely. */
+  color-scheme: dark;
+  font: 15px/1.4 system-ui, "Segoe UI", Roboto, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #121214;
+  color: #e8e8ec;
+}
+
+#root {
+  height: 100vh;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+input {
+  font: inherit;
+}

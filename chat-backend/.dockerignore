@@ -1,0 +1,7 @@
+build/
+.gradle/
+data/
+*.mv.db
+*.trace.db
+.idea/
+*.iml
